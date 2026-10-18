@@ -1,0 +1,112 @@
+{
+  "id": "photocraft",
+  "nama": "PhotoCraft",
+  "deskripsi": "Editor foto ala Photoshop — layer, mask, kurva, PSD — ditulis dari nol dengan Rust. Ringan, offline, dan bisa disetir agen AI lewat MCP.",
+  "kategori": "Desain",
+  "tag": "Image Processing",
+  "sumber": "https://github.com/storytold/photocraft",
+  "lisensi": "MIT OR Apache-2.0",
+  "sorot": [
+    "Buka & simpan PSD/PSB, layer, mask, adjustment layer, layer style",
+    "500+ perintah yang sama bisa dijalankan dari menu, CLI, atau server MCP — agen AI adaCODE bisa menyunting foto",
+    "Mode portabel: semua setelan di folder app, tak menulis ke AppData",
+    "Status hulu: early alpha (v0.10.0)"
+  ],
+  "perkiraan": {
+    "disk_mb": 180,
+    "ram_mb": 300,
+    "catatan": "Unduhan 81 MB (zip portabel resmi, SHA-256 diverifikasi); terpasang ±180 MB. RAM perkiraan, belum diukur."
+  },
+  "ikon": "photocraft.png",
+  "gambar": "gambar.jpg",
+  "versi_manifes": 1,
+  "butuh_gpu": false,
+  "bisa_pindah_vps": false,
+  "os_didukung": [
+    "win32"
+  ],
+  "app_minimal": "0.2.4",
+  "prasyarat": [],
+  "pasang": [
+    {
+      "aksi": "log",
+      "pesan": "Mengunduh PhotoCraft 0.10.0 (±81 MB)…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "curl -L --fail -o photocraft.zip https://github.com/storytold/photocraft/releases/download/v0.10.0/photocraft-0.10.0-windows-x64-portable.zip"
+    },
+    {
+      "aksi": "log",
+      "pesan": "Memeriksa keaslian berkas (SHA-256)…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash photocraft.zip -Algorithm SHA256).Hash -ne '66b7e47d66589eb6947c8d7417c80fa44621cf83823ffdc47f42024eb03bd5d2'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item photocraft.zip; exit 1}\""
+    },
+    {
+      "aksi": "log",
+      "pesan": "Membongkar PhotoCraft ke folder app…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf photocraft.zip && xcopy /e /y /i /q photocraft-0.10.0-windows-x64-portable app && rmdir /s /q photocraft-0.10.0-windows-x64-portable && del /q photocraft.zip"
+    },
+    {
+      "aksi": "log",
+      "pesan": "PhotoCraft siap. Setelan & autosave tersimpan di app\\PhotoCraftData (mode portabel)."
+    }
+  ],
+  "jalan": {
+    "perintah_windows": "app\\photocraft.exe",
+    "tanpa_url": true
+  },
+  "perbarui": [
+    {
+      "aksi": "log",
+      "pesan": "Memperbarui PhotoCraft ke 0.10.0 (±81 MB) — setelan di PhotoCraftData dipertahankan…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "curl -L --fail -o photocraft.zip https://github.com/storytold/photocraft/releases/download/v0.10.0/photocraft-0.10.0-windows-x64-portable.zip"
+    },
+    {
+      "aksi": "log",
+      "pesan": "Memeriksa keaslian berkas (SHA-256)…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash photocraft.zip -Algorithm SHA256).Hash -ne '66b7e47d66589eb6947c8d7417c80fa44621cf83823ffdc47f42024eb03bd5d2'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item photocraft.zip; exit 1}\""
+    },
+    {
+      "aksi": "log",
+      "pesan": "Membongkar PhotoCraft ke folder app…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf photocraft.zip && xcopy /e /y /i /q photocraft-0.10.0-windows-x64-portable app && rmdir /s /q photocraft-0.10.0-windows-x64-portable && del /q photocraft.zip"
+    }
+  ],
+  "setel_ulang": [
+    {
+      "aksi": "log",
+      "pesan": "Mengosongkan setelan, preset kuas, dan autosave PhotoCraft."
+    },
+    {
+      "aksi": "folder",
+      "kosongkan": "app/PhotoCraftData"
+    }
+  ],
+  "catatan": {
+    "sumber_binari": "Zip portabel resmi rilis v0.10.0 dari GitHub storytold/photocraft; SHA-256 dicocokkan dengan SHA256SUMS.txt rilis yang sama (66b7e47d66589eb6947c8d7417c80fa44621cf83823ffdc47f42024eb03bd5d2).",
+    "satu_folder": "portable.txt di sebelah photocraft.exe membuat PhotoCraft menyimpan semua di app\\PhotoCraftData dan tidak menulis ke %APPDATA%/%LOCALAPPDATA%.",
+    "perbarui": "xcopy menimpa berkas program saja; folder PhotoCraftData tak ada di zip sehingga utuh.",
+    "mcp": "Agen AI: jalankan \"app\\photocraft-cli.exe mcp\" (server MCP, 500+ perintah). Belum disambungkan otomatis ke adaVIBE.",
+    "ai_bawaan": "Lapisan AI Craft (craft-ai-integrations) punya adapter OpenAI-compatible tapi masih draf & belum terhubung ke app — model adaCODE belum disuntik.",
+    "os": "Pilot hanya Windows x64. Linux (tar.gz/AppImage) & Mac (dmg) tersedia di hulu, belum diuji.",
+    "tar": "tar.exe bawaan Windows dipanggil dgn jalur lengkap: GNU tar (Git for Windows di PATH) menolak zip (\"This does not look like a tar archive\") - terbukti di uji 19 Okt."
+  },
+  "populer": 0,
+  "unggulan": false,
+  "ditambahkan": "2026-10-19"
+}
