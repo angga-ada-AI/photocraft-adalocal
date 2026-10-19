@@ -27,6 +27,11 @@ menyimpan commit SHA barunya di `/admin/app-katalog`.
 
 ## Agen AI
 
+Manifes ini mendeklarasikan bidang `mcp`. adaCODE App yang mengenalnya menyambungkan server MCP PhotoCraft
+(`adalocal-photocraft`) ke setiap sesi adaVIBE secara otomatis, dengan akar baca/tulis = folder proyek sesi.
+Pengguna cukup menulis "rapikan foto ini" di adaVIBE; tak ada setelan yang perlu diisi.
+
+
 PhotoCraft menjalankan 500+ perintah yang sama dari menu, CLI, dan server MCP:
 
 ```

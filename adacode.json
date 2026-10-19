@@ -101,12 +101,23 @@
     "sumber_binari": "Zip portabel resmi rilis v0.10.0 dari GitHub storytold/photocraft; SHA-256 dicocokkan dengan SHA256SUMS.txt rilis yang sama (66b7e47d66589eb6947c8d7417c80fa44621cf83823ffdc47f42024eb03bd5d2).",
     "satu_folder": "portable.txt di sebelah photocraft.exe membuat PhotoCraft menyimpan semua di app\\PhotoCraftData dan tidak menulis ke %APPDATA%/%LOCALAPPDATA%.",
     "perbarui": "xcopy menimpa berkas program saja; folder PhotoCraftData tak ada di zip sehingga utuh.",
-    "mcp": "Agen AI: jalankan \"app\\photocraft-cli.exe mcp\" (server MCP, 500+ perintah). Belum disambungkan otomatis ke adaVIBE.",
+    "mcp": "Bidang \"mcp\": adaCODE App (>= rilis yang mengenal bidang ini) menulis apps/photocraft/.mcp.json; adaVIBE menyambungkan server \"adalocal-photocraft\" ke tiap sesi dgn akar baca/tulis = folder proyek sesi (@folder_kerja@ diisi app, bukan server). App lama mengabaikan bidang ini.",
     "ai_bawaan": "Lapisan AI Craft (craft-ai-integrations) punya adapter OpenAI-compatible tapi masih draf & belum terhubung ke app — model adaCODE belum disuntik.",
     "os": "Pilot hanya Windows x64. Linux (tar.gz/AppImage) & Mac (dmg) tersedia di hulu, belum diuji.",
     "tar": "tar.exe bawaan Windows dipanggil dgn jalur lengkap: GNU tar (Git for Windows di PATH) menolak zip (\"This does not look like a tar archive\") - terbukti di uji 19 Okt."
   },
   "populer": 0,
   "unggulan": false,
-  "ditambahkan": "2026-10-19"
+  "ditambahkan": "2026-10-19",
+  "mcp": {
+    "perintah_windows": "{{folder_app}}\\app\\photocraft-cli.exe",
+    "args": [
+      "mcp",
+      "--automation-read-root",
+      "@folder_kerja@",
+      "--automation-write-root",
+      "@folder_kerja@"
+    ],
+    "jelas": "Sunting foto di folder proyek: buka, perbaiki (kecerahan, kontras, ketajaman, warna, crop, layer), simpan/ekspor — 500+ perintah PhotoCraft."
+  }
 }
