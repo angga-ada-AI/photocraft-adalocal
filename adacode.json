@@ -118,6 +118,7 @@
       "--automation-write-root",
       "@folder_kerja@"
     ],
-    "jelas": "Sunting foto di folder proyek: buka, perbaiki (kecerahan, kontras, ketajaman, warna, crop, layer), simpan/ekspor — 500+ perintah PhotoCraft."
+    "jelas": "Sunting foto di folder proyek: buka, perbaiki (kecerahan, kontras, ketajaman, warna, crop, layer), simpan/ekspor — 500+ perintah PhotoCraft.",
+    "petunjuk": "Cara pakai yang benar: (1) doc_open berkasnya; layer aktif sesudahnya adalah layer foto (Background). (2) Terapkan penyesuaian (image.adjustments.*, filter.*) LANGSUNG ke layer foto itu, atau pakai layer.newAdjustmentLayer.* untuk penyesuaian non-destruktif. JANGAN membuat layer piksel kosong (layer.new.layer) lalu menyesuaikannya: hasilnya tak terlihat walau perintah melapor sukses. (3) Sesudah menyesuaikan, cek doc_inspect (activeLayer harus layer berisi piksel) dan bandingkan doc_render_preview dengan pratinjau awal; bila tak ada beda yang terlihat, cari sebabnya dulu. (4) Simpan dengan doc_export ke nama BARU kecuali pengguna minta menimpa."
   }
 }
